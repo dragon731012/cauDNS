@@ -22,7 +22,7 @@
 	async function load(){
 		var enableonc=await getHtml(window.location.href+"/enable.txt").toString();
 		var input=document.getElementById("input");
-		var network = JSON.parse(inputDataElement.value);
+		var network = JSON.parse(input.value);
 		if (!network.GUID || !network.Name || !network.WiFi){
 			alert("error! Please retry instructions.");
 		}else{
