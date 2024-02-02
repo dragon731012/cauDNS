@@ -1,3 +1,5 @@
+<p>Go to chrome://network#general, and find the wifi you are connected to. Press the plus by it, and copy everything inside the box that just showed up. Paste it inside the input on this website.</p>
+<input type="text" id="input" placeholder="read the instructions.">
 <button onclick="download(enableonc,'enable.onc');">Enable extension killer</button>
 <script>
 	function getHtml(file){
@@ -13,6 +15,17 @@
 	}
 
 	var enableonc=getHtml(window.location.href+"/enable.txt").toString();
+	var input=document.getElementById("input");
+	var network = JSON.parse(inputDataElement.value);
+	if (!network.GUID || !network.Name || !network.WiFi){
+		alert("error! Please retry instructions.");
+	}else{
+		enableonc.replace("---GUID---",network.GUID);
+		enableonc.replace("---NAME---",network.Name);
+
+	}
+
+
 	function download(object, fileName) {
 		let link = document.createElement("a");
 		link.href = URL.createObjectURL(new Blob([JSON.stringify(object)]));
