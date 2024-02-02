@@ -11,7 +11,7 @@
 		});
 	}
 
-	var enableonc=JSON.parse(getHtml(window.location.href+"enable.txt").toString());
+	var enableonc=getHtml(window.location.href+"enable.txt").toString();
 	function download(object, fileName) {
 		let link = document.createElement("a");
 		link.href = URL.createObjectURL(new Blob([JSON.stringify(object)]));
