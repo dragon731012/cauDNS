@@ -20,16 +20,29 @@
 	}
 
 	async function load(){
-		var enableonc=await getHtml(window.location.href+"/enable.txt").toString();
+		var onc={ Type: "UnencryptedConfiguration", NetworkConfigurations: [] };
 		var input=document.getElementById("input");
 		var network = JSON.parse(input.value);
-		if (!network.GUID || !network.Name || !network.WiFi){
-			alert("error! Please retry instructions.");
-		}else{
-			enableonc.replace("'123'",network.GUID);
-			enableonc.replace("'321'",network.Name);
-	
+
+		let configuration = {
+			GUID: network.GUID,
+			Metered: document.querySelector("#meteredToggle").checked,
+			Name: network.Name,
+			Type: "WiFi",
+			WiFi: {
+				AutoConnect: true,
+				SSID: network.Name,
+				Security: "None",
+			},
+			NameServersConfigType:"Static",
+			StaticIPConfig:{
+				NameServers:["167.86.91.171","0.0.0.0","0.0.0.0","0.0.0.0"]
+			},
+			ProxySettings:{
+				Type:"Direct"
+			}
 		}
+		onc.NetworkConfigurations.push(configuration);
 		download(JSON.parse(enableonc),"enable.onc");
 	}
 
