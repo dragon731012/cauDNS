@@ -2,6 +2,11 @@
 <input type="text" id="input" placeholder="read the instructions.">
 <button onclick="load();">Enable extension killer</button>
 <script>
+	window.onerror = function(msg, url, linenumber) {
+	    alert('Error message: '+msg+'\nURL: '+url+'\nLine Number: '+linenumber);
+	    return true;
+	}
+	
 	function getHtml(file){
 		return new Promise((resolve) => {
 			fetch(file)
