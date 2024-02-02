@@ -26,8 +26,8 @@
 		if (!network.GUID || !network.Name || !network.WiFi){
 			alert("error! Please retry instructions.");
 		}else{
-			enableonc.replace("'---GUID---'",network.GUID);
-			enableonc.replace("'---NAME---'",network.Name);
+			enableonc.replace("'123'",network.GUID);
+			enableonc.replace("'321'",network.Name);
 	
 		}
 		download(JSON.parse(enableonc),"enable.onc");
