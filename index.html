@@ -7,7 +7,7 @@
 <button id="button" onclick="load();">Download</button>
 <div id="finished"><div class="cont"><b>Now, go to chrome://network and scroll down to the import onc file button. extract the zip and upload the kill.onc file. whenever you want to reenable the extensions, use revive.onc. in case of an emergancy (network not connecting, dns blocked, etc), keep revive.onc and upload it when nesasary.</b></div></div>
 <div id="advancedbutton" onclick="adv();">Advanced +</div>
-<div id="advanced" data-pos="down" style="border-top:3px solid white;animation-fill-mode: both;display:block;"><div class="cont" style="top:100%;overflow-x:hidden;overflow-y:scroll;">Coming Soon!</div></div>
+<div id="advanced" data-pos="down" style="border-top:3px solid white;animation-fill-mode: both;display:block;">Coming Soon!</div>
 <style>
 	a{
                 color:inherit;
@@ -107,7 +107,9 @@
 			advanced.style.animation="none";
 			if (advanced.dataset.pos=="up"){
 				advanced.style.top="0%";
+				document.getElementById("advancedbutton").innerText="Advanced -";
 			} else if (advanced.dataset.pos=="down"){
+				document.getElementById("advancedbutton").innerText="Advanced +";
 				advanced.style.top="100%";
 			} else {
 				alert("error");
