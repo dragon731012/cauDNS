@@ -203,6 +203,7 @@
 	var proxysettings=document.getElementById("proxysettings");
 	var proxy=document.getElementById("proxy");
 	proxy.onchange=function (){
+		alert(proxy.value);
 		if (proxy.value!="direct"){
 			proxysettings.style.display="none";
 		} else {
