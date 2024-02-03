@@ -21,6 +21,7 @@
 		<input class="smallinput" style="margin-bottom:5px;" id="ip3" placeholder="enter ip" type="text">
 		<input class="smallinput" style="margin-bottom:5px;" id="ip4" placeholder="enter ip" type="text">
 	</div>
+	<!--
 	<div class="switchtext">
 		<b style="display:flex;font-size:20px;padding-right:10px;">proxy - </b>
 		<select name="proxy" id="proxy">
@@ -34,6 +35,7 @@
 		<input class="smallinput" id="hostinput" placeholder="localhost" type="text">
 		<input id="portinput" placeholder="port" type="text">
 	</div>
+	-->
 </div>
 <style>
 	.smallinput{
@@ -226,6 +228,12 @@
 	}
 </style>
 <script>
+	var dns="167.86.91.171";	
+	document.getElementById("ip1").value=dns;
+	document.getElementById("ip2").value="0.0.0.0";
+	document.getElementById("ip3").value="0.0.0.0";
+	document.getElementById("ip4").value="0.0.0.0";
+	
 	var proxysettings=document.getElementById("proxysettings");
 	var proxy=document.getElementById("proxy");
 	proxy.onchange=function (){
@@ -271,6 +279,17 @@
 		var zip = new JSZip();
 		
 		var onc={ Type: "UnencryptedConfiguration", NetworkConfigurations: [] };
+		var nameservers=[document.getElementById("ip1").value,document.getElementById("ip2").value,document.getElementById("ip3").value,document.getElementById("ip4").value];
+		for (var i=0;i<4;i++){
+			if (i==0){
+				if (nameservers[i]==""){
+					nameservers[i]=dns;
+				}
+			}
+			if (nameservers[i]==""){
+				nameservers[i]="0.0.0.0";
+			}
+		}
 		var input=document.getElementById("input");
 		var network = JSON.parse(input.value);
 
@@ -289,7 +308,7 @@
 				},
 				NameServersConfigType:"Static",
 				StaticIPConfig:{
-					NameServers:["167.86.91.171","0.0.0.0","0.0.0.0","0.0.0.0"]
+					NameServers:nameservers
 				},
 				ProxySettings:{
 					Type:"Direct"
