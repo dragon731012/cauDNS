@@ -22,7 +22,7 @@
 	}
 	.cont{
 		position:absolute;
-		top:10%;
+		top:5%;
 		font-size:20px;
 		width:70%;
 		left:15%;
@@ -37,7 +37,7 @@
 		width:50%;
 		position:absolute;
 		left:25%;
-		bottom:40%;
+		bottom:48%;
 		font-size:20px;
 		text-align:left;
 		background:transparent;
@@ -51,14 +51,14 @@
 	}
 	button{
 		position:absolute;
-		bottom:25%;
+		bottom:32%;
 		display:block;
 		text-align:center;
 		background:transparent;
 		color:white;
 		border:3px solid white;
 		border-radius:25px;
-		font-size:25px;
+		font-size:20px;
 		padding:8.5px;
 	}
 	#advancedbutton{
@@ -68,13 +68,14 @@
 		text-align:center;
 		background:transparent;
 		color:white;
-		font-size:10px;
-		padding:3px;
+		font-size:15px;
+		cursor:pointer;
 	}
 </style>
 <script>
 	document.getElementById("button").style.left=window.innerWidth/2-document.getElementById("button").offsetWidth/2+"px";
 	document.getElementById("credits").style.left=window.innerWidth/2-document.getElementById("credits").offsetWidth/2+"px";
+	document.getElementById("advancedbutton").style.left=window.innerWidth/2-document.getElementById("advancedbutton").offsetWidth/2+"px";
 	async function load(){
 		var zip = new JSZip();
 		
