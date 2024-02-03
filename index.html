@@ -30,6 +30,26 @@
 	</div>
 </div>
 <style>
+	#hostinput{
+		width:25%;
+		font-size:15px;
+		text-align:left;
+		background:transparent;
+		color:white;
+		padding:5px;
+		border:3px solid white;
+		border-radius:25px;
+	}
+	#portinput{
+		width:10%;
+		font-size:15px;
+		text-align:left;
+		background:transparent;
+		color:white;
+		padding:5px;
+		border:3px solid white;
+		border-radius:25px;
+	}
 	#proxy{
 		display: flex;
 		color: white;
@@ -203,11 +223,10 @@
 	var proxysettings=document.getElementById("proxysettings");
 	var proxy=document.getElementById("proxy");
 	proxy.onchange=function (){
-		alert(proxy.value);
 		if (proxy.value!="direct"){
-			proxysettings.style.display="none";
-		} else {
 			proxysettings.style.display="flex";
+		} else {
+			proxysettings.style.display="none";
 		}
 	}
 	var advanced=document.getElementById("advanced");
