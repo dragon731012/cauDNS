@@ -15,16 +15,6 @@
 		  <span class="slider round"></span>
 		</label>
 	</div>
-	<div class="switchtext">
-		<b style="display:flex;font-size:20px;padding-right:10px;">proxy - </b>
-		<label class="switch" style="display:flex;">
-		  <input type="checkbox" id="proxy" checked>
-		  <span class="slider round"></span>
-		</label>
-		<select name="type" id="type" style="display:none;">
-			<option value="direct">Direct</option>
-		</select>
-	</div>
 </div>
 <style>
 	.switchtext{
@@ -189,14 +179,6 @@
 	}
 </style>
 <script>
-	var type=document.getElementById("type");
-	document.getElementById("proxy").onclick=function(){
-		if (document.getElementById("proxy").checked==true){
-			type.style.display="flex";
-		} else {
-			type.style.display="none";
-		}
-	}
 	var advanced=document.getElementById("advanced");
 	advanced.addEventListener("animationend",()=>{
 		advanced.style.animation="none";
