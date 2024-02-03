@@ -15,6 +15,12 @@
 		  <span class="slider round"></span>
 		</label>
 	</div>
+	<div class="switchtext" style="flex-direction: column;">
+		<input class="smallinput" id="ip1" placeholder="enter ip" type="text">
+		<input class="smallinput" id="ip2" placeholder="enter ip" type="text">
+		<input class="smallinput" id="ip3" placeholder="enter ip" type="text">
+		<input class="smallinput" id="ip4" placeholder="enter ip" type="text">
+	</div>
 	<div class="switchtext">
 		<b style="display:flex;font-size:20px;padding-right:10px;">proxy - </b>
 		<select name="proxy" id="proxy">
@@ -25,12 +31,12 @@
 		</select>
 	</div>
 	<div id="proxysettings" class="switchtext" style="display:none;">
-		<input id="hostinput" placeholder="localhost" type="text">
+		<input class="smallinput" id="hostinput" placeholder="localhost" type="text">
 		<input id="portinput" placeholder="port" type="text">
 	</div>
 </div>
 <style>
-	#hostinput{
+	.smallinput{
 		width:25%;
 		font-size:15px;
 		text-align:left;
