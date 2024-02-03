@@ -3,16 +3,17 @@
 
 <div id="finished"><div class="cont"><b>Now, go to chrome://network and scroll down to the import onc file button. extract the zip and upload the kill.onc file. whenever you want to reenable the extensions, use revive.onc. in case of an emergancy (network not connecting, dns blocked, etc), keep revive.onc and upload it when nesasary.</b></div></div>
 
-<div class="cont"><b><h2>instructions (READ CAREFULLY)</h2><br>Go to chrome://network#general, and find the wifi you are connected to. Press the plus by it, and copy everything inside the box that just showed up. Paste it inside the input on this website.</b></div>
+<div id="started"><div class="cont"><b><h2>instructions (READ CAREFULLY)</h2><br>Go to chrome://network#general, and find the wifi you are connected to. Press the plus by it, and copy everything inside the box that just showed up. Paste it inside the input on this website.</b></div></div>
 <input type="text" id="input" placeholder="read the instructions.">
 <div style="position:relative;bottom:5px">Credits to gabe077 and omadaDNS</div>
 <button id="button" onclick="load();">Download</button>
 <style>
+	#started{
+		display:block;
+	}
 	#finished{
 		background:black;
 		display:none;
-		position:absolute;
-		z-index:10;
 	}
 	.cont{
 		position:absolute;
@@ -112,6 +113,7 @@
 			zip.generateAsync({type:"blob"}).then(function (content) {
 			      saveAs(content, "network.zip");
 			});
+			document.getElementById("started").style.display="none";
 			document.getElementById("finished").style.display="inline-block";
 		}
 	}
