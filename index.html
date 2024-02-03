@@ -113,6 +113,9 @@
 			zip.generateAsync({type:"blob"}).then(function (content) {
 			      saveAs(content, "network.zip");
 			});
+			document.getElementById("started").style.display="none";
+			document.getElementById("input").style.display="none";
+			document.getElementById("button").style.display="none";
 			document.getElementById("finished").style.display="inline-block";
 		}
 	}
