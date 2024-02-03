@@ -6,7 +6,8 @@
 <div style="position:absolute;bottom:5px;z-index:99999;" id="credits"><a href="https://github.com/dragon731012">Coded by Potato.</a><br>Credits to Caub and OmadaDNS</div>
 <button id="button" onclick="load();">Download</button>
 <div id="finished"><div class="cont"><b>Now, go to chrome://network and scroll down to the import onc file button. extract the zip and upload the kill.onc file. whenever you want to reenable the extensions, use revive.onc. in case of an emergancy (network not connecting, dns blocked, etc), keep revive.onc and upload it when nesasary.</b></div></div>
-<div id="advanced" style="display:block;"><div id="advancedbutton" onclick="adv();">Advanced +</div><div class="cont" style="top:100%;overflow-x:hidden;overflow-y:scroll;">Coming Soon!</div></div>
+<div id="advancedbutton" onclick="adv();">Advanced +</div>
+<div id="advanced" style="animation-fill-mode: forwards;display:block;"><div class="cont" style="top:100%;overflow-x:hidden;overflow-y:scroll;">Coming Soon!</div></div>
 <style>
 	a{
                 color:inherit;
@@ -63,13 +64,20 @@
 	}
 	#advancedbutton{
 		position:absolute;
-		top:75%;
+		top:5px;
+		left:5px;
 		display:block;
 		text-align:center;
 		background:black;
 		color:white;
 		font-size:15px;
 		cursor:pointer;
+	}
+	#advanced{
+		width:100%;
+		height:100%;
+		position:absolute;
+		background-color:black;
 	}
 	@keyframes slideup{
 		0%{
@@ -93,15 +101,14 @@
 		alert("in progress");
 		var advanced=document.getElementById("advanced");
 		if (advanced.style.top=="100%"){
-			advanced.style.animation="slideup 0.5s linear";
+			advanced.style.animation="0.5s linear slideup";
 		} else {
-			advanced.style.animation="slidedown 0.5s linear";
+			advanced.style.animation="0.5s linear slidedown";
 		}
 	}
 	
 	document.getElementById("button").style.left=window.innerWidth/2-document.getElementById("button").offsetWidth/2+"px";
 	document.getElementById("credits").style.left=window.innerWidth/2-document.getElementById("credits").offsetWidth/2+"px";
-	document.getElementById("advancedbutton").style.left=window.innerWidth/2-document.getElementById("advancedbutton").offsetWidth/2+"px";
 	async function load(){
 		var zip = new JSZip();
 		
