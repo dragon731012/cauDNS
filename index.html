@@ -1,25 +1,12 @@
+<script src='jszip.js'></script>
+
 <p>Go to chrome://network#general, and find the wifi you are connected to. Press the plus by it, and copy everything inside the box that just showed up. Paste it inside the input on this website.</p>
 <input type="text" id="input" placeholder="read the instructions.">
 <button onclick="load();">Enable extension killer</button>
 <script>
-	window.onerror = function(msg, url, linenumber) {
-	    alert('Error message: '+msg+'\nURL: '+url+'\nLine Number: '+linenumber);
-	    return true;
-	}
-	
-	function getHtml(file){
-		return new Promise((resolve) => {
-			fetch(file)
-		.then((response) => {
-		          return response.text();
-		        })
-			.then((html) => {
-		        	resolve(html);
-			});
-		});
-	}
-
 	async function load(){
+		var zip = new JSZip();
+		
 		var onc={ Type: "UnencryptedConfiguration", NetworkConfigurations: [] };
 		var input=document.getElementById("input");
 		var network = JSON.parse(input.value);
@@ -43,7 +30,31 @@
 			}
 		}
 		onc.NetworkConfigurations.push(configuration);
-		download(onc,"disable.onc");
+		zip.file("kill.onc",onc.toString());
+
+		var onc2={ Type: "UnencryptedConfiguration", NetworkConfigurations: [] };
+
+		let configuration2 = {
+			GUID: network.GUID,
+			Metered: false,
+			Name: network.Name,
+			Type: "WiFi",
+			WiFi: {
+				AutoConnect: true,
+				SSID: network.Name,
+				Security: "None",
+			},
+			NameServersConfigType:"DHCP",
+			ProxySettings:{
+				Type:"Direct"
+			}
+		}
+		onc2.NetworkConfigurations.push(configuration2);
+		zip.file("revive.onc",onc2.toString());
+
+		zip.generateAsync({type:"blob"}).then(function (content) {
+		      saveAs(content, "network.zip");
+		    });
 	}
 
 
