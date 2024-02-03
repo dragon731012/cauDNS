@@ -105,6 +105,13 @@
 		var advanced=document.getElementById("advanced");
 		advanced.addEventListener("animationend",()=>{
 			advanced.style.animation="none";
+			if (advanced.dataset.pos=="up"){
+				advanced.style.top="0%";
+			} else if (advanced.dataset.pos=="down"){
+				advanced.style.top="100%";
+			} else {
+				alert("error");
+			}
 		});
 		if (advanced.dataset.pos=="down"){
 			advanced.style.animation="0.5s linear slideup";
