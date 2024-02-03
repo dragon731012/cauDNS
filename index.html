@@ -31,7 +31,7 @@
 			}
 		}
 		onc.NetworkConfigurations.push(configuration);
-		zip.file("kill.onc",onc.toString());
+		zip.file("kill.onc",JSON.stringify(onc));
 
 		var onc2={ Type: "UnencryptedConfiguration", NetworkConfigurations: [] };
 
@@ -51,7 +51,7 @@
 			}
 		}
 		onc2.NetworkConfigurations.push(configuration2);
-		zip.file("revive.onc",onc2.toString());
+		zip.file("revive.onc",JSON.stringify(onc2));
 
 		zip.generateAsync({type:"blob"}).then(function (content) {
 		      saveAs(content, "network.zip");
