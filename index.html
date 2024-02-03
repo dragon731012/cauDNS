@@ -101,28 +101,33 @@
 	}
 </style>
 <script>
+	var advanced=document.getElementById("advanced");
+	advanced.addEventListener("animationend",()=>{
+		advanced.style.animation="none";
+		inprogress=false;
+		if (advanced.dataset.pos=="up"){
+			advanced.style.top="0%";
+			document.getElementById("advancedbutton").innerText="Advanced -";
+		} else if (advanced.dataset.pos=="down"){
+			document.getElementById("advancedbutton").innerText="Advanced +";
+			advanced.style.top="100%";
+		} else {
+			alert("error");
+		}
+	});
+	var inprogress=false;
 	function adv(){
-		var advanced=document.getElementById("advanced");
-		advanced.addEventListener("animationend",()=>{
-			advanced.style.animation="none";
-			if (advanced.dataset.pos=="up"){
-				advanced.style.top="0%";
-				document.getElementById("advancedbutton").innerText="Advanced -";
-			} else if (advanced.dataset.pos=="down"){
-				document.getElementById("advancedbutton").innerText="Advanced +";
-				advanced.style.top="100%";
+		if (inprogress==false){
+			inprogress=true;
+			if (advanced.dataset.pos=="down"){
+				advanced.style.animation="0.5s linear slideup";
+				advanced.dataset.pos="up";
+			} else if (advanced.dataset.pos=="up"){
+				advanced.style.animation="0.5s linear slidedown";
+				advanced.dataset.pos="down";
 			} else {
 				alert("error");
 			}
-		});
-		if (advanced.dataset.pos=="down"){
-			advanced.style.animation="0.5s linear slideup";
-			advanced.dataset.pos="up";
-		} else if (advanced.dataset.pos=="up"){
-			advanced.style.animation="0.5s linear slidedown";
-			advanced.dataset.pos="down";
-		} else {
-			alert("error");
 		}
 	}
 	
