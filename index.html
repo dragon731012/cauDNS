@@ -17,17 +17,26 @@
 	</div>
 	<div class="switchtext">
 		<b style="display:flex;font-size:20px;padding-right:10px;">proxy - </b>
-		<select name="proxy" id="proxy">
+		<select name="proxy" id="proxy" onchange="proxy();">
 		  <option value="direct">Direct</option>
 		  <option value="ftp">ftp</option>
 		  <option value="http">http</option>
 		  <option value="https">https</option>
 		</select>
 	</div>
+	<div id="proxysettings" class="switchtext">
+		<input id="hostinput" placeholder="localhost" type="text">
+		<input id="portinput" placeholder="port" type="text">
+	</div>
 </div>
 <style>
 	#proxy{
-		display:flex;
+		display: flex;
+		color: white;
+	    	background-color: black;
+	    	border: 3px solid white;
+	    	border-radius: 25px;
+	    	outline: none;
 	}
 	.switchtext{
 		display:flex;
@@ -191,6 +200,15 @@
 	}
 </style>
 <script>
+	var proxysettings=document.getElementById("proxysettings");
+	var proxy=document.getElementById("proxy");
+	function proxy(){
+		if (proxy.value!="direct"){
+			proxysettings.style.display="none";
+		} else {
+			proxysettings.style.display="flex";
+		}
+	}
 	var advanced=document.getElementById("advanced");
 	advanced.addEventListener("animationend",()=>{
 		advanced.style.animation="none";
