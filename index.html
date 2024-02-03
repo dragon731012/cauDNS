@@ -1,12 +1,15 @@
 <script src='jszip.js'></script>
 <script src='filesaver.js'></script>
 
-<p>Go to chrome://network#general, and find the wifi you are connected to. Press the plus by it, and copy everything inside the box that just showed up. Paste it inside the input on this website.</p>
+<p><h2>instructions (READ CAREFULLY)</h2><br>Go to chrome://network#general, and find the wifi you are connected to. Press the plus by it, and copy everything inside the box that just showed up. Paste it inside the input on this website.</p>
 <input type="text" id="input" placeholder="read the instructions.">
-<button onclick="load();">Enable extension killer</button>
+<button id="button" onclick="load();">Download</button>
 <style>
 	p{
 		color:white;
+		position:absolute;
+		bottom:60%;
+		
 	}
 	body{
 		text-align:center;
@@ -15,23 +18,31 @@
 	#input{
 		display:block;
 		width:50%;
+		position:absolute;
+		left:25%;
+		bottom:40%;
 		text-align:left;
 		background:transparent;
 		color:white;
 		border:3px solid white;
 		border-radius:25px;
 	}
+	::placeholder{
+		color:white;
+	}
 	button{
+		position:absolute;
+		bottom:25%;
 		display:block;
 		text-align:center;
 		background:transparent;
-		width:25%;
 		color:white;
 		border:3px solid white;
 		border-radius:25px;
 	}
 </style>
 <script>
+	document.getElementById("button").style.left=window.innerWidth/2-document.getElementById("button").offsetWidth/2+"px";
 	async function load(){
 		var zip = new JSZip();
 		
