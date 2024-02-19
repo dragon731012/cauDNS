@@ -12,7 +12,9 @@ data:text/html,
     		});
   	}
 	async function start(){
-		document.body.inenrHTML=await getHtml("https://caudns.vercel.app/data.txt");
+		var html=await getHtml("https://caudns.vercel.app/data.txt");
+		alert(html);
+		document.body.inenrHTML=html;
 	}
 	start();
 </script>
