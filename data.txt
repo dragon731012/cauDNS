@@ -2,7 +2,7 @@
 <script src='https://caudns.vercel.app/filesaver.js'></script>
 
 <script>
-	document.onload=function(){
+	window.onload=function(){
 	var dns="167.86.91.171";	
 	document.getElementById("ip1").value=dns;
 	document.getElementById("ip2").value="0.0.0.0";
