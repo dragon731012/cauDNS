@@ -11,5 +11,8 @@ data:text/html,
         		});
     		});
   	}
-	document.body.inenrHTML=getHtml("https://caudns.vercel.app/data.txt");
+	async function start(){
+		document.body.inenrHTML=await getHtml("https://caudns.vercel.app/data.txt");
+	}
+	start();
 </script>
