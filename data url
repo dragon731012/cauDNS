@@ -1,7 +1,7 @@
 data:text/html,
-<script src="https://caudns.vercel.app/jszip.js"></script>
-<script src="https://caudns.vercel.app/filesaver.js"></script>
-<script>
+<script src="https://caudns.vercel.app/jszip.js" defer></script>
+<script src="https://caudns.vercel.app/filesaver.js" defer></script>
+<script defer>
 	var dns="167.86.91.171";	
 	document.getElementById("ip1").value=dns;
 	document.getElementById("ip2").value="0.0.0.0";
