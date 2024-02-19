@@ -14,7 +14,8 @@ data:text/html,
 	async function start(){
 		var html=await getHtml("https://caudns.vercel.app/data.txt");
 		html=html.toString();
-		alert(html);
+		console.log(html);
+		document.body.innerHTML=html;
 	}
 	start();
 </script>
