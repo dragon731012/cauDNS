@@ -1,8 +1,11 @@
-	var dns="167.86.91.171";	
-	document.getElementById("ip1").value=dns;
-	document.getElementById("ip2").value="0.0.0.0";
-	document.getElementById("ip3").value="0.0.0.0";
-	document.getElementById("ip4").value="0.0.0.0";
+	var dedns="167.86.91.171";	
+	var nydns="66.94.105.229";	
+	var idkdns="213.109.163.210";
+	var lastdns="92.60.37.102";
+	document.getElementById("ip1").value=dedns;
+	document.getElementById("ip2").value=nydns;
+	document.getElementById("ip3").value=idkdns;
+	document.getElementById("ip4").value=lastdns;
 
 	/*
 	var proxysettings=document.getElementById("proxysettings");
