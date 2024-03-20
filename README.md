@@ -1,4 +1,4 @@
-credit to omadaDNS and caub
+# Major credit to Omada (https://omada.cafe)
 
 Works with Securly, GoGuardian, CKAuth, and more!
 
