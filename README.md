@@ -1,6 +1,6 @@
 # Major credit to Omada (https://omada.cafe)
 
-Works with Securly, GoGuardian, CKAuth, and more!
+Works with GoGuardian, CKAuth, and more!
 
 # How to use
 Type this into your url bar:
